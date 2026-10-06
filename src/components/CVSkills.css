@@ -1,19 +1,26 @@
 .cv-skills-section {
-    margin-top: 32px;
-    padding-top: 28px;
-    border-top: 1px solid rgba(255, 236, 214, 0.28);
-  }
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 0;
+  padding: 36px 32px 32px;
+  border-radius: 24px;
+  background: rgba(235, 250, 250, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  box-shadow: 0 20px 50px rgba(46, 105, 116, 0.16);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
   
   .cv-skills-section h2 {
     margin: 0 0 8px;
     font-size: 24px;
     font-weight: 500;
-    color: #fff8ef;
+    color: #173f46;
   }
   
   .cv-skills-description {
     margin: 0 0 22px;
-    color: #f6e6d4;
+    color: #58777c;
     font-size: 15px;
   }
   
@@ -25,7 +32,7 @@
     display: block;
     margin-bottom: 8px;
     font-size: 14px;
-    color: #ffe7c2;
+    color: #397b82;
   }
   
   .cv-file-input {
@@ -44,14 +51,14 @@
     padding: 8px 12px;
     border: 0;
     border-radius: 8px;
-    background: rgba(255, 122, 54, 0.88);
-    color: #fff8ef;
+    background: #4faeb2;
+    color: #ffffff;
     font: inherit;
     cursor: pointer;
   }
   
   .cv-file-input::file-selector-button:hover {
-    background: rgba(255, 92, 40, 0.95);
+    background: #3d999e;
   }
   
   .cv-file-name {
@@ -77,15 +84,15 @@
     box-sizing: border-box;
     padding: 12px 14px;
     border-radius: 12px;
-    border: 1px solid rgba(255, 236, 214, 0.35);
-    background: rgba(255, 248, 239, 0.92);
-    color: #2b1b14;
+    border-color: rgba(80, 150, 158, 0.28);
+    background: rgba(255, 255, 255, 0.72);
+    color: #24474d;
     font: inherit;
   }
   
   .skill-input:focus-visible,
   .cv-file-input:focus-visible {
-    outline: 2px solid #ffb45a;
+    outline: 2px solid #69bfc2;
     outline-offset: 2px;
   }
   
