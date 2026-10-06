@@ -10,6 +10,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 32px;
   align-items: start;
+  margin-bottom: 32px;
 }
 
 /* JOB SEARCH CARD */

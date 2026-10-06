@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import CVSkills from './components/CVSkills'
+import JobResults from './components/JobResults'
 
 const MAX_SITES = 5
 
@@ -148,6 +149,7 @@ function App() {
         <CVSkills />
 
       </div>
+      <JobResults />
     </main>
   )
 }
