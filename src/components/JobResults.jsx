@@ -7,7 +7,14 @@ const demoJobs = [
     company: 'Example Company',
     location: 'Vilnius',
     source: 'CVMarket',
-    url: '#',
+    url: 'https://www.cvmarket.lt',
+    requirements: [
+      'HR Operations',
+      'Workday',
+      'Process Improvement',
+      'People Management',
+      'Payroll',
+    ],
   },
   {
     id: 2,
@@ -15,7 +22,14 @@ const demoJobs = [
     company: 'Sample Organisation',
     location: 'Kaunas',
     source: 'CVMarket',
-    url: '#',
+    url: 'https://www.cvmarket.lt',
+    requirements: [
+      'People Operations',
+      'Team Leadership',
+      'HR Systems',
+      'Process Improvement',
+      'Employee Experience',
+    ],
   },
   {
     id: 3,
@@ -23,11 +37,18 @@ const demoJobs = [
     company: 'Demo Group',
     location: 'Vilnius',
     source: 'CVMarket',
-    url: '#',
+    url: 'https://www.cvmarket.lt',
+    requirements: [
+      'HR Processes',
+      'Continuous Improvement',
+      'Project Management',
+      'HR Systems',
+      'Data Analysis',
+    ],
   },
 ]
 
-function JobResults() {
+function JobResults({ onSelectJob }) {
   return (
     <section className="job-results">
       <div className="results-heading">
@@ -62,13 +83,13 @@ function JobResults() {
               </div>
             </div>
 
-            <a
+            <button
+              type="button"
               className="view-job-link"
-              href={job.url}
-              onClick={(event) => event.preventDefault()}
+              onClick={() => onSelectJob(job)}
             >
               View job
-            </a>
+            </button>
           </article>
         ))}
       </div>

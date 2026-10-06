@@ -1,0 +1,87 @@
+.job-match-page {
+    min-height: 100svh;
+    padding: 40px;
+    box-sizing: border-box;
+  }
+  
+  .back-button {
+    margin-bottom: 20px;
+    padding: 10px 14px;
+    border: none;
+    background: transparent;
+    color: #245f66;
+    font: inherit;
+    cursor: pointer;
+  }
+  
+  .back-button:hover {
+    text-decoration: underline;
+  }
+  
+  .job-match-card {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 36px 32px;
+    box-sizing: border-box;
+    border-radius: 24px;
+    background: rgba(235, 250, 250, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    box-shadow: 0 20px 50px rgba(46, 105, 116, 0.16);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+  
+  .job-match-eyebrow {
+    margin: 0 0 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 12px;
+    color: #397b82;
+  }
+  
+  .job-match-card h1 {
+    margin: 0 0 10px;
+    color: #173f46;
+    font-size: 36px;
+  }
+  
+  .job-company {
+    margin: 0;
+    color: #58777c;
+  }
+  
+  .requirements-section {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(80, 150, 158, 0.2);
+  }
+  
+  .requirements-section h2 {
+    margin: 0 0 16px;
+    color: #173f46;
+    font-size: 20px;
+  }
+  
+  .requirements-section ul {
+    margin: 0;
+    padding-left: 22px;
+    color: #24474d;
+  }
+  
+  .requirements-section li {
+    margin-bottom: 10px;
+  }
+  
+  @media (max-width: 600px) {
+    .job-match-page {
+      padding: 24px 16px;
+    }
+  
+    .job-match-card {
+      padding: 28px 22px;
+    }
+  
+    .job-match-card h1 {
+      font-size: 30px;
+    }
+  }

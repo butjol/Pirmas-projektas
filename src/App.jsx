@@ -2,10 +2,12 @@ import { useState } from 'react'
 import './App.css'
 import CVSkills from './components/CVSkills'
 import JobResults from './components/JobResults'
+import JobMatch from './components/JobMatch'
 
 const MAX_SITES = 5
 
 function App() {
+  const [selectedJob, setSelectedJob] = useState(null)
   const [query, setQuery] = useState('')
   const [jobSites, setJobSites] = useState([''])
 
@@ -27,7 +29,9 @@ function App() {
       return
     }
 
-    setJobSites(jobSites.filter((_, siteIndex) => siteIndex !== index))
+    setJobSites(
+      jobSites.filter((_, siteIndex) => siteIndex !== index)
+    )
   }
 
   function normalizeUrl(url) {
@@ -61,10 +65,19 @@ function App() {
     (site) => site.trim() !== ''
   ).length
 
+  // If a job has been selected, show the Job Match page.
+  if (selectedJob) {
+    return (
+      <JobMatch
+        job={selectedJob}
+        onBack={() => setSelectedJob(null)}
+      />
+    )
+  }
+
   return (
     <main className="job-page">
       <div className="page-columns">
-
         <div className="job-card">
           <p className="eyebrow">Latest job ads</p>
 
@@ -74,7 +87,10 @@ function App() {
             Add a keyword and the job-search websites you want to use.
           </p>
 
-          <label className="search-label" htmlFor="job-query">
+          <label
+            className="search-label"
+            htmlFor="job-query"
+          >
             Keyword
           </label>
 
@@ -83,13 +99,16 @@ function App() {
             className="search-input"
             type="search"
             value={query}
-            onChange={(event) => setQuery(event.target.value)}
+            onChange={(event) =>
+              setQuery(event.target.value)
+            }
             placeholder="e.g. HR Operations, Process Lead"
           />
 
           <div className="sites-heading">
             <div>
               <h2>Job sites</h2>
+
               <p>
                 Add up to 5 job-search website addresses.
               </p>
@@ -102,13 +121,19 @@ function App() {
 
           <div className="site-input-list">
             {jobSites.map((site, index) => (
-              <div className="site-input-row" key={index}>
+              <div
+                className="site-input-row"
+                key={index}
+              >
                 <input
                   type="text"
                   className="site-url-input"
                   value={site}
                   onChange={(event) =>
-                    handleSiteChange(index, event.target.value)
+                    handleSiteChange(
+                      index,
+                      event.target.value
+                    )
                   }
                   placeholder="e.g. linkedin.com/jobs"
                 />
@@ -116,7 +141,9 @@ function App() {
                 <button
                   type="button"
                   className="remove-site-button"
-                  onClick={() => removeJobSite(index)}
+                  onClick={() =>
+                    removeJobSite(index)
+                  }
                   aria-label={`Remove job site ${index + 1}`}
                   title="Remove"
                 >
@@ -147,9 +174,11 @@ function App() {
         </div>
 
         <CVSkills />
-
       </div>
-      <JobResults />
+
+      <JobResults
+        onSelectJob={setSelectedJob}
+      />
     </main>
   )
 }
