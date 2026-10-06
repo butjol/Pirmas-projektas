@@ -11,6 +11,14 @@ function App() {
   const [query, setQuery] = useState('')
   const [jobSites, setJobSites] = useState([''])
 
+  const [skills, setSkills] = useState([
+    '',
+    '',
+    '',
+    '',
+    '',
+  ])
+
   function handleSiteChange(index, value) {
     const updatedSites = [...jobSites]
     updatedSites[index] = value
@@ -30,7 +38,9 @@ function App() {
     }
 
     setJobSites(
-      jobSites.filter((_, siteIndex) => siteIndex !== index)
+      jobSites.filter(
+        (_, siteIndex) => siteIndex !== index
+      )
     )
   }
 
@@ -57,7 +67,11 @@ function App() {
       .filter((site) => site !== '')
 
     validSites.forEach((site) => {
-      window.open(site, '_blank', 'noopener,noreferrer')
+      window.open(
+        site,
+        '_blank',
+        'noopener,noreferrer'
+      )
     })
   }
 
@@ -65,11 +79,12 @@ function App() {
     (site) => site.trim() !== ''
   ).length
 
-  // If a job has been selected, show the Job Match page.
   if (selectedJob) {
     return (
       <JobMatch
         job={selectedJob}
+        skills={skills}
+        onSkillsChange={setSkills}
         onBack={() => setSelectedJob(null)}
       />
     )
@@ -79,12 +94,15 @@ function App() {
     <main className="job-page">
       <div className="page-columns">
         <div className="job-card">
-          <p className="eyebrow">Latest job ads</p>
+          <p className="eyebrow">
+            Latest job ads
+          </p>
 
           <h1>Search jobs by site</h1>
 
           <p className="lead">
-            Add a keyword and the job-search websites you want to use.
+            Add a keyword and the job-search
+            websites you want to use.
           </p>
 
           <label
@@ -110,7 +128,8 @@ function App() {
               <h2>Job sites</h2>
 
               <p>
-                Add up to 5 job-search website addresses.
+                Add up to 5 job-search website
+                addresses.
               </p>
             </div>
 
@@ -173,7 +192,10 @@ function App() {
           </button>
         </div>
 
-        <CVSkills />
+        <CVSkills
+          skills={skills}
+          onSkillsChange={setSkills}
+        />
       </div>
 
       <JobResults

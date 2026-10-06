@@ -84,4 +84,49 @@
     .job-match-card h1 {
       font-size: 30px;
     }
-  }
+    
+    .my-skills-section {
+        margin-top: 32px;
+        padding-top: 24px;
+        border-top: 1px solid rgba(80, 150, 158, 0.2);
+      }
+      
+      .my-skills-section h2 {
+        margin: 0 0 8px;
+        color: #173f46;
+        font-size: 20px;
+      }
+      
+      .my-skills-description {
+        margin: 0 0 16px;
+        color: #58777c;
+        font-size: 14px;
+      }
+      
+      .job-match-skills {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+      
+      .job-match-skill-input {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 12px 14px;
+        border-radius: 12px;
+        border: 1px solid rgba(80, 150, 158, 0.28);
+        background: rgba(255, 255, 255, 0.72);
+        color: #24474d;
+        font: inherit;
+      }
+      
+      .job-match-skill-input:focus-visible {
+        outline: 2px solid #69bfc2;
+        outline-offset: 2px;
+      }
+      
+      @media (max-width: 600px) {
+        .job-match-skills {
+          grid-template-columns: 1fr;
+        }
+    }}
