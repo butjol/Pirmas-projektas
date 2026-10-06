@@ -1,9 +1,8 @@
 import { useState } from 'react'
 import './CVSkills.css'
 
-function CVSkills() {
+function CVSkills({ skills, onSkillsChange }) {
   const [cvFile, setCvFile] = useState(null)
-  const [skills, setSkills] = useState(['', '', '', '', ''])
 
   function handleFileChange(event) {
     const file = event.target.files[0]
@@ -16,7 +15,7 @@ function CVSkills() {
   function handleSkillChange(index, value) {
     const updatedSkills = [...skills]
     updatedSkills[index] = value
-    setSkills(updatedSkills)
+    onSkillsChange(updatedSkills)
   }
 
   return (
@@ -28,7 +27,10 @@ function CVSkills() {
       </p>
 
       <div className="cv-upload-area">
-        <label className="cv-upload-label" htmlFor="cv-upload">
+        <label
+          className="cv-upload-label"
+          htmlFor="cv-upload"
+        >
           Upload CV
         </label>
 
@@ -58,7 +60,10 @@ function CVSkills() {
               type="text"
               value={skill}
               onChange={(event) =>
-                handleSkillChange(index, event.target.value)
+                handleSkillChange(
+                  index,
+                  event.target.value
+                )
               }
               placeholder={`Skill ${index + 1}`}
             />

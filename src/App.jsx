@@ -2,12 +2,22 @@ import { useState } from 'react'
 import './App.css'
 import CVSkills from './components/CVSkills'
 import JobResults from './components/JobResults'
+import JobMatch from './components/JobMatch'
 
 const MAX_SITES = 5
 
 function App() {
+  const [selectedJob, setSelectedJob] = useState(null)
   const [query, setQuery] = useState('')
   const [jobSites, setJobSites] = useState([''])
+
+  const [skills, setSkills] = useState([
+    '',
+    '',
+    '',
+    '',
+    '',
+  ])
 
   function handleSiteChange(index, value) {
     const updatedSites = [...jobSites]
@@ -27,7 +37,11 @@ function App() {
       return
     }
 
-    setJobSites(jobSites.filter((_, siteIndex) => siteIndex !== index))
+    setJobSites(
+      jobSites.filter(
+        (_, siteIndex) => siteIndex !== index
+      )
+    )
   }
 
   function normalizeUrl(url) {
@@ -53,7 +67,11 @@ function App() {
       .filter((site) => site !== '')
 
     validSites.forEach((site) => {
-      window.open(site, '_blank', 'noopener,noreferrer')
+      window.open(
+        site,
+        '_blank',
+        'noopener,noreferrer'
+      )
     })
   }
 
@@ -61,20 +79,36 @@ function App() {
     (site) => site.trim() !== ''
   ).length
 
+  if (selectedJob) {
+    return (
+      <JobMatch
+        job={selectedJob}
+        skills={skills}
+        onSkillsChange={setSkills}
+        onBack={() => setSelectedJob(null)}
+      />
+    )
+  }
+
   return (
     <main className="job-page">
       <div className="page-columns">
-
         <div className="job-card">
-          <p className="eyebrow">Latest job ads</p>
+          <p className="eyebrow">
+            Latest job ads
+          </p>
 
           <h1>Search jobs by site</h1>
 
           <p className="lead">
-            Add a keyword and the job-search websites you want to use.
+            Add a keyword and the job-search
+            websites you want to use.
           </p>
 
-          <label className="search-label" htmlFor="job-query">
+          <label
+            className="search-label"
+            htmlFor="job-query"
+          >
             Keyword
           </label>
 
@@ -83,15 +117,19 @@ function App() {
             className="search-input"
             type="search"
             value={query}
-            onChange={(event) => setQuery(event.target.value)}
+            onChange={(event) =>
+              setQuery(event.target.value)
+            }
             placeholder="e.g. HR Operations, Process Lead"
           />
 
           <div className="sites-heading">
             <div>
               <h2>Job sites</h2>
+
               <p>
-                Add up to 5 job-search website addresses.
+                Add up to 5 job-search website
+                addresses.
               </p>
             </div>
 
@@ -102,13 +140,19 @@ function App() {
 
           <div className="site-input-list">
             {jobSites.map((site, index) => (
-              <div className="site-input-row" key={index}>
+              <div
+                className="site-input-row"
+                key={index}
+              >
                 <input
                   type="text"
                   className="site-url-input"
                   value={site}
                   onChange={(event) =>
-                    handleSiteChange(index, event.target.value)
+                    handleSiteChange(
+                      index,
+                      event.target.value
+                    )
                   }
                   placeholder="e.g. linkedin.com/jobs"
                 />
@@ -116,7 +160,9 @@ function App() {
                 <button
                   type="button"
                   className="remove-site-button"
-                  onClick={() => removeJobSite(index)}
+                  onClick={() =>
+                    removeJobSite(index)
+                  }
                   aria-label={`Remove job site ${index + 1}`}
                   title="Remove"
                 >
@@ -146,10 +192,15 @@ function App() {
           </button>
         </div>
 
-        <CVSkills />
-
+        <CVSkills
+          skills={skills}
+          onSkillsChange={setSkills}
+        />
       </div>
-      <JobResults />
+
+      <JobResults
+        onSelectJob={setSelectedJob}
+      />
     </main>
   )
 }
