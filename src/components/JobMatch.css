@@ -129,4 +129,166 @@
         .job-match-skills {
           grid-template-columns: 1fr;
         }
+        .compare-skills-button {
+            width: 100%;
+            margin-top: 24px;
+            padding: 14px 18px;
+            border: none;
+            border-radius: 12px;
+            background: #4faeb2;
+            color: #ffffff;
+            font: inherit;
+            font-weight: 600;
+            cursor: pointer;
+            transition:
+              background 0.15s ease,
+              transform 0.15s ease;
+          }
+          
+          .compare-skills-button:hover {
+            background: #3d999e;
+            transform: translateY(-1px);
+          }
+          
+          .compare-skills-button:focus-visible {
+            outline: 2px solid #69bfc2;
+            outline-offset: 2px;
+          }
+          
+          .comparison-complete {
+            margin: 14px 0 0;
+            text-align: center;
+            color: #397b82;
+            font-size: 14px;
+          }
+          .match-result {
+            margin-top: 32px;
+            padding-top: 28px;
+            border-top: 1px solid rgba(80, 150, 158, 0.2);
+          }
+          
+          .match-result-eyebrow {
+            margin: 0 0 10px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            font-size: 12px;
+            color: #397b82;
+          }
+          
+          .match-score {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 28px;
+            color: #173f46;
+          }
+          
+          .match-score strong {
+            font-size: 48px;
+            line-height: 1;
+          }
+          
+          .match-score span {
+            margin-top: 8px;
+            font-size: 16px;
+            color: #58777c;
+          }
+          
+          .match-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+          }
+          
+          .matched-skills,
+          .missing-skills {
+            padding: 20px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.55);
+            border: 1px solid rgba(80, 150, 158, 0.18);
+          }
+          
+          .matched-skills h3,
+          .missing-skills h3 {
+            margin: 0 0 14px;
+            color: #173f46;
+            font-size: 17px;
+          }
+          
+          .matched-skills ul,
+          .missing-skills ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+          }
+          
+          .matched-skills li,
+          .missing-skills li {
+            margin-bottom: 9px;
+            color: #397b82;
+          }
+          
+          .matched-skills p,
+          .missing-skills p {
+            margin: 0;
+            color: #58777c;
+            font-size: 14px;
+          }
+          
+          .match-actions {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            margin-top: 28px;
+          }
+          
+          .results-button,
+          .open-job-button {
+            flex: 1;
+            box-sizing: border-box;
+            padding: 12px 18px;
+            border-radius: 12px;
+            font: inherit;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+          }
+          
+          .results-button {
+            border: 1px solid #4faeb2;
+            background: transparent;
+            color: #397b82;
+          }
+          
+          .open-job-button {
+            border: 1px solid #4faeb2;
+            background: #4faeb2;
+            color: #ffffff;
+            text-decoration: none;
+          }
+          
+          .results-button:hover {
+            background: rgba(79, 174, 178, 0.1);
+          }
+          
+          .open-job-button:hover {
+            background: #3d999e;
+          }
+          
+          .results-button:focus-visible,
+          .open-job-button:focus-visible {
+            outline: 2px solid #69bfc2;
+            outline-offset: 2px;
+          }
+          
+          @media (max-width: 600px) {
+            .match-columns {
+              grid-template-columns: 1fr;
+            }
+          
+            .match-actions {
+              flex-direction: column;
+            }
+          }
     }}
