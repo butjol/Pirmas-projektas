@@ -101,3 +101,83 @@
       grid-template-columns: 1fr;
     }
   }
+
+.saved-skills-area,
+.saved-matches-section {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(80, 150, 158, 0.2);
+  color: #24474d;
+}
+
+.saved-skills-area h3,
+.saved-matches-section h2 {
+  margin: 0 0 12px;
+  color: #173f46;
+}
+
+.saved-skills-list,
+.saved-matches-list {
+  display: grid;
+  gap: 8px;
+  padding: 0;
+  list-style: none;
+}
+
+.saved-skills-list li,
+.saved-matches-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.saved-skills-list button,
+.saved-matches-list button,
+.add-skill-form button,
+.save-match-actions button {
+  padding: 8px 11px;
+  border: 1px solid rgba(79, 174, 178, 0.4);
+  border-radius: 9px;
+  background: #4faeb2;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+.saved-skills-list button:disabled,
+.saved-matches-list button:disabled,
+.add-skill-form button:disabled,
+.save-match-actions button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.add-skill-form {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.add-skill-form input,
+.saved-skills-list input {
+  min-width: 0;
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid rgba(80, 150, 158, 0.3);
+  border-radius: 10px;
+  color: #24474d;
+  font: inherit;
+}
+
+.supabase-error { color: #a12d2d; }
+.supabase-success { color: #277057; }
+.supabase-notice { color: #58777c; }
+
+@media (max-width: 480px) {
+  .add-skill-form { flex-direction: column; }
+}

@@ -47,8 +47,11 @@ keyword does **not** yet filter real jobs.
 -   JavaScript / JSX
 -   plain CSS
 -   ESLint
+-   Supabase JavaScript client for skills and saved Job Match persistence
 
-Current application is frontend-only.
+The application remains frontend-only for vacancy search. Supabase is used
+for persisted skills and saved match results when environment variables
+and suitable RLS policies are configured.
 
 A small Node/Express backend is planned for real vacancy retrieval. Do
 not add a database, authentication, AI matching, or CV parsing before it
@@ -171,8 +174,8 @@ request.
 -   Skills-based matching;
 -   CV parsing;
 -   AI/semantic matching;
--   database;
--   authentication.
+-   authentication for private per-user Supabase data;
+-   Supabase owner/user relationship in the current schema.
 
 Do not describe these as working features.
 
@@ -333,6 +336,25 @@ Do not add these to the first Job Match MVP:
 - authentication.
 
 The first comparison should remain deliberately simple and understandable.
+
+## Supabase persistence status
+
+Implemented Supabase CRUD calls for `public.skills` and
+`public.job_matches`. The frontend uses `VITE_SUPABASE_URL` and
+`VITE_SUPABASE_ANON_KEY`; local secrets belong in `.env.local`, which is
+ignored by Git. `.env.example` contains empty variable names only.
+
+The current tables have no owner/user field and authentication is not
+implemented. RLS must remain enabled. Before using real users, add
+Supabase Auth and an ownership field plus per-user policies. Public
+anonymous write policies would expose and allow modification of shared
+data, so they are not recommended. Permission failures are shown in the
+UI until an access model is configured.
+
+The saved Job Match percentage is calculated from the existing exact
+skill comparison. Jobs with no requirements cannot be saved because a
+percentage cannot be calculated. Skills persistence is separate from
+the five editable skills carried into Job Match.
 
 ## Updated immediate next steps
 

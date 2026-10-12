@@ -345,3 +345,72 @@
       flex-direction: column;
     }
   }
+
+.save-match-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.save-match-actions button,
+.saved-matches-list button {
+  padding: 10px 14px;
+  border: 1px solid rgba(79, 174, 178, 0.4);
+  border-radius: 10px;
+  background: #4faeb2;
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.save-match-actions button:disabled,
+.saved-matches-list button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.saved-matches-section {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(80, 150, 158, 0.2);
+  color: #58777c;
+}
+
+.saved-matches-section h2 {
+  margin: 0 0 14px;
+  color: #173f46;
+  font-size: 20px;
+}
+
+.saved-matches-list {
+  display: grid;
+  gap: 10px;
+  padding: 0;
+  list-style: none;
+}
+
+.saved-matches-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.saved-matches-list li div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  color: #24474d;
+}
+
+.saved-matches-list a { color: #397b82; }
+
+@media (max-width: 600px) {
+  .saved-matches-list li { align-items: flex-start; flex-direction: column; }
+}
